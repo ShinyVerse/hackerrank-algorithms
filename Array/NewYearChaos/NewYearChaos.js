@@ -1,38 +1,3 @@
-function minimumBribes(queue) {
-  let bribes = 0;
-
-  const originalOrder = [];
-  for (let i = 0; i < queue.length; i++) {
-    originalOrder[i] = i + 1;
-  }
-
-  for (let i = 0; i < queue.length; i++) {
-    if (queue[i] !== originalOrder[i]) {
-      // console.log(originalOrder);
-      // console.log(i);
-      if (queue[i] === originalOrder[i + 1]) {
-        bribes++;
-
-        let temp = originalOrder[i];
-        originalOrder[i] = originalOrder[i + 1];
-        originalOrder[i + 1] = temp;
-      } else if (queue[i] === originalOrder[i + 2]) {
-        bribes += 2;
-        let temp = originalOrder[i];
-        console.log("beofre", originalOrder);
-        originalOrder[i] = originalOrder[i + 2];
-        originalOrder[i + 2] = originalOrder[i + 1];
-        originalOrder[i + 1] = temp;
-        console.log("after", originalOrder);
-      } else {
-        return "Too chaotic";
-      }
-    }
-  }
-
-  return bribes;
-}
-
 // ///mine::::
 // function minimumBribes(queue) {
 //   // [1, 2, 3, 4, 5]
@@ -100,8 +65,6 @@ function minimumBribes(queue) {
 
 // return totalBribes;
 
-module.exports = { minimumBribes };
-
 // at just under 30 mins:
 //Unfinished, but close:
 
@@ -128,3 +91,41 @@ module.exports = { minimumBribes };
 
 //further steps to complete:
 // fix a bug of 1 less than expected.
+
+// solution to understand::::
+// function minimumBribes(queue) {
+//   let bribes = 0;
+
+//   const originalOrder = [];
+//   for (let i = 0; i < queue.length; i++) {
+//     originalOrder[i] = i + 1;
+//   }
+
+//   for (let i = 0; i < queue.length; i++) {
+//     if (queue[i] !== originalOrder[i]) {
+//       // console.log(originalOrder);
+//       // console.log(i);
+//       if (queue[i] === originalOrder[i + 1]) {
+//         bribes++;
+
+//         let temp = originalOrder[i];
+//         originalOrder[i] = originalOrder[i + 1];
+//         originalOrder[i + 1] = temp;
+//       } else if (queue[i] === originalOrder[i + 2]) {
+//         bribes += 2;
+//         let temp = originalOrder[i];
+//         console.log("beofre", originalOrder);
+//         originalOrder[i] = originalOrder[i + 2];
+//         originalOrder[i + 2] = originalOrder[i + 1];
+//         originalOrder[i + 1] = temp;
+//         console.log("after", originalOrder);
+//       } else {
+//         return "Too chaotic";
+//       }
+//     }
+//   }
+
+//   return bribes;
+// }
+
+module.exports = { minimumBribes };
